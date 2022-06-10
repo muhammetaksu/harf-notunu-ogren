@@ -1,5 +1,5 @@
-let examGrade = prompt("Puaninizi Giriniz:");
 // let cardText = document.getElementById("card-text");
+let examGrade = prompt("Puanınızı Giriniz:");
 let textInfo;
 
 const SMILE = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
@@ -18,38 +18,38 @@ const ARROW = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fi
 
 let info = document.getElementById("card-text");
 
-if (examGrade >= 0 && examGrade <= 100) {
+if (examGrade >= 1 && examGrade <= 100) {
     textInfo = SMILE;
     info.classList.add("text-primary");
     if (examGrade >= 1 && examGrade <= 49) {
-        textInfo = `${FROWN} FF ${ARROW}`;
+        textInfo = `${FROWN} Harf Notunuz: FF ${ARROW} Puanınız:`;
         info.classList.replace("text-primary", "text-danger");
     } else if (examGrade >= 50 && examGrade <= 59) {
-        textInfo += " FD";
+        textInfo += ` Harf Notunuz: FD ${ARROW} Puanınız:`;
     } else if (examGrade >= 60 && examGrade <= 64) {
-        textInfo += " DD";
+        textInfo += ` Harf Notunuz: DD ${ARROW} Puanınız:`;
     } else if (examGrade >= 65 && examGrade <= 69) {
-        textInfo += " DC";
+        textInfo += ` Harf Notunuz: DC ${ARROW} Puanınız:`;
     } else if (examGrade >= 70 && examGrade <= 74) {
-        textInfo += " CC";
+        textInfo += ` Harf Notunuz: CC ${ARROW} Puanınız:`;
     } else if (examGrade >= 75 && examGrade <= 79) {
-        textInfo += " CB";
+        textInfo += ` Harf Notunuz: CB ${ARROW} Puanınız:`;
     } else if (examGrade >= 80 && examGrade <= 84) {
-        textInfo += " BB";
+        textInfo += ` Harf Notunuz: BB ${ARROW} Puanınız:`;
     } else if (examGrade >= 85 && examGrade <= 89) {
-        textInfo += " BA";
+        textInfo += ` Harf Notunuz: BA ${ARROW} Puanınız:`;
     } else if (examGrade >= 90 && examGrade <= 100) {
-        textInfo += " AA";
+        textInfo += ` Harf Notunuz: AA ${ARROW} Puanınız:`;
     }
-} else {
-    info.classList.add("text-secondary");
-    textInfo = "Hatalı Giriş Yaptınız.";
+    info.innerHTML = `${textInfo} ${examGrade}`;
 }
-info.innerHTML = `${textInfo} ${ARROW} ${examGrade}`;
 
 if (examGrade == 0 || examGrade == null) {
-    textInfo = "Lütfen Bir Sayı Giriniz";
-    info.classList.replace("text-primary", "text-black");
+    textInfo = `Lütfen bir sayı giriniz.`;
+    info.innerHTML = `${textInfo}`;
 }
 
-info.innerHTML = `${textInfo} ${examGrade}`;
+if (examGrade < 0 || examGrade > 100) {
+    textInfo = `Lütfen 0-100 arasında bir sayı giriniz.`;
+    info.innerHTML = `${textInfo}`;
+}
